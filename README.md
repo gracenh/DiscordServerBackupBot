@@ -11,7 +11,7 @@ This is a simple discord backup server bot, it takes messages of a server and re
 
 1. Clone the repository
 2. Run `npm install` to install dependencies
-3. Update `.env` and update `config.json` with appropriate values
+3. Update `.env` and update `config.json` with appropriate values. There is a variable in the scrape.js for your archive server ID. it is around line 140~
 4. Run the bot:
 
 ## To run
