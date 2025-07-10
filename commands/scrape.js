@@ -2,8 +2,7 @@
 /**  Note: This command is intended to be used in a Discord bot context and requires the Discord.js library to function properly
 /* Make sure to have the necessary permissions and intents enabled for your bot.
 /* Some varaiables have hardcoded values that need to be set before running your bot, such as the archive guild ID
-/*
-/* i apologize for the code being pretty messy! it was originally meant for personal use
+/* i apologize for the code being pretty messy! 
 */
 
 /**
@@ -51,7 +50,7 @@ async function findOldestMessage(channel) {
   //limit to prevent an infinite loop
   const MAX_REQUESTS = 100; 
   
-  
+  //1386900688856023151
   try {
     await channel.send(' Searching for oldest message...');
     
@@ -140,7 +139,7 @@ module.exports = {
 
     try {
       //connect to archive guild
-      const archiveGuildId = 'SET YOUR ARCHIVE GUILD ID HERE'; 
+      const archiveGuildId = 'YOURGUILDIDHERE'; 
       let archiveGuild;
       try {
         archiveGuild = await interaction.client.guilds.fetch(archiveGuildId);
@@ -348,13 +347,9 @@ module.exports = {
 
         //process chunk in chronological order 
         newMessagesFound += chunk.length;
-        
+        chunk.reverse();
         console.log(`Final chunk size: ${chunk.length} messages`);
         
-        //only show chunk processing for smaller chunks or first few chunks
-        if (chunk.length < 10000 || chunkNum < 3) {
-          await interaction.channel.send(` Processing chunk ${chunkNum+1}: ${chunk.length} messages`);
-        }
 
         //check for stop request before processing chunk
         if (global.scrapingState.shouldStop) {
