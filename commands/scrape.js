@@ -406,10 +406,7 @@ module.exports = {
         }
 
         chunkNum++;
-        //only show finished chunk message for smaller chunks or first few chunks
-        if (chunk.length < 10000 || chunkNum <= 3) {
-          await interaction.followUp(` Finished chunk ${chunkNum}: ${chunk.length} messages`);
-        }
+       
         await save(lastProcessedId, processedCount);
         
         //if we were resuming and found messages, we're done with the new messages
